@@ -1,0 +1,16 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:2.4.3
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./plugins:/usr/share/elasticsearch/plugins
+      - ./config:/usr/share/elasticsearch/config
+      - ./data/data:/usr/share/elasticsearch/data
+      - ./data/logs:/usr/share/elasticsearch/logs
+    ports:
+      - ${ELASTICSEARCH_PORT_9200}
+      - ${ELASTICSEARCH_PORT_9300}
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      PUBLISH_IP: "localhost"
