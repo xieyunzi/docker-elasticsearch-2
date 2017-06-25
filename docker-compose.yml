@@ -14,3 +14,8 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
       PUBLISH_IP: "localhost"
+
+networks:
+  default:
+    external:
+      name: xz-bridge
